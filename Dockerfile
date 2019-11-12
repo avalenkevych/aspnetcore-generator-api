@@ -8,8 +8,8 @@ COPY api/api.csproj ./api/
 RUN dotnet restore api/api.csproj
 COPY tests/tests.csproj ./tests/
 RUN dotnet restore tests/tests.csproj
-COPY integration/integration.csproj ./integration/
-RUN dotnet restore integration/integration.csproj
+#COPY integration/integration.csproj ./integration/
+#RUN dotnet restore integration/integration.csproj
 
 
 # copy src
@@ -18,7 +18,7 @@ COPY . .
 # test
 #ENV TEAMCITY_PROJECT_NAME=fake
 RUN dotnet test tests/tests.csproj
-RUN dotnet test integration/integration.csproj
+#RUN dotnet test integration/integration.csproj
 
 # publish
 RUN dotnet publish api/api.csproj -o /publish
