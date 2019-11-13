@@ -9,7 +9,7 @@ RUN dotnet restore api/api.csproj
 COPY tests/tests.csproj ./tests/
 RUN dotnet restore tests/tests.csproj
 COPY integration/integration.csproj ./integration/
-RUN dotnet restore 
+RUN dotnet restore integration/integration.csproj
 
 
 # copy src
