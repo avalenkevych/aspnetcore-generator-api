@@ -8,13 +8,15 @@ COPY api/api.csproj ./api/
 RUN dotnet restore api/api.csproj
 COPY tests/tests.csproj ./tests/
 RUN dotnet restore tests/tests.csproj
+COPY integration/integration.csproj ./integration/
+RUN dotnet restore 
 
 
 # copy src
 COPY . .
 
 # test
-#ENV TEAMCITY_PROJECT_NAME=fake
+
 RUN dotnet test tests/tests.csproj
 
 
