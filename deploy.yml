@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+  labels:
+   app: my-apiclient
+spec:
+  selector:
+    matchLabels:
+      app: my-apiclient
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: my-apiclient
+    spec:
+      containers:
+      - name: apiclient
+        image: artifactorydev.inwk.com:8081/docker-local/integrationtest:latest
+        ports:
+        - containerPort: 80
+     
